@@ -1,0 +1,77 @@
+{% comment %}
+
+this is a django comment
+
+blog/ 
+
+{% endcomment %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sammi's blog</title>
+    </head>
+
+    <body>
+
+        <header>
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </header>
+
+        <article>
+            <time>published: 14.06.2014, 12:14</time>
+            <h2><a href="">My first post</a></h2>
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        </article>
+
+        <article>
+            <time>published: 14.06.2014, 12:14</time>
+            <h2><a href="">My second post</a></h2>
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+        </article>
+
+
+        {% if posts %} <!-- checkes to see if post variable exists -->
+
+        <div>
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Author</th>
+                        <th>Title</th>
+                        <th>Text</th>
+                        <th>Published Date</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in posts %}
+                    <!-- this loop goes through each post in the 'post' variable -->
+                     <tr>
+                         <td>{{ row.author }}</td>
+                         <td>{{ row.title }}</a></td>
+                         <td>{{ row.text}}</td>
+                         <td>{{ row.published_date }}</td>
+                     </tr>  <!-- end of each row -->
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+
+
+        {% else %}
+        <div class="noposts">
+            No Posts Found! 
+        </div> <!-- Adding a div to do whatever we want-->
+
+        {% endif %}
+
+    </body>
+
+</html>
